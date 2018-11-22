@@ -6,7 +6,7 @@ This is an app that can be run on OakOS and can be used to test the Payment modu
 
 Check [package.json](/package.json) for the current version.  See [Docker Hub](https://hub.docker.com/r/oaklabs/payment-demo/tags/) for version history.
 
-# Running
+# Install
 
 You can use Postman to send the following to your local OakOS instance at `/application/install`:
 
