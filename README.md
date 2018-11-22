@@ -8,13 +8,29 @@ Check [package.json](/package.json) for the current version.  See [Docker Hub](h
 
 # Running
 
-For running on a kiosk, you probably want to run at minimum 3 containers:
+You can use Postman to send the following to your local OakOS instance at `/application/install`:
 
-1. oaklabs/component-payment
-2. oaklabs/payment-demo
-3. [an app using @oaklabs/platform and pointed at http://0.0.0.0:9151]
-
-The third container's responsibility is to render this webpage (2) to the Kiosk screen.  This app will communicate with (1) over the local network.
+```json
+{
+	"services": [
+		{
+			"image": "index.docker.io/oaklabs/payment-demo:0.1.1",
+			"username": "{{dockerUsername}}",
+			"password": "{{dockerPassword}}"
+		},
+		{
+			"image": "index.docker.io/oaklabs/component-payment:0.0.11",
+			"username": "{{dockerUsername}}",
+			"password": "{{dockerPassword}}"
+		},
+		{
+			"image": "index.docker.io/lumenday/lumenday-oaktest:0.1.1",
+			"username": "{{dockerUsername}}",
+			"password": "{{dockerPassword}}"
+		}
+	]
+}
+```
 
 If you are successful you should see a webpage come up on the kiosk with 3 buttons: Info, Configure, and Sale.
 
